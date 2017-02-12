@@ -53,6 +53,13 @@
   padding-left: 0;
 }
 
+.error_text {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #a94442;
+  padding-top: 10px;
+}
+
 :focus {
   outline-color: transparent;
   outline-style: none;

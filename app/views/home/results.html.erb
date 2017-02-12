@@ -2,17 +2,23 @@
   <h1>Google Maps Search</h1>
   <p>Search for a city below and quickly review past searches.</p>
   <%= form_tag({:controller => 'home', :action => 'results'}, :method => 'post', :id => 'search_form', :class => 'navbar-form') do %>
-      <fieldset>
-        <div class = 'form-group'>
-          <div id='location_input_errors' class='form-errors'></div>
-          <%= text_field_tag :location_input, nil, class: 'form-control col-lg-6', placeholder: 'CITY OR ADDRESS' %>
+    <fieldset>
+      <div class = 'form-group'>
+        <div id='location_input_errors' class='form-errors'></div>
+        <%= text_field_tag :location_input, nil, class: 'form-control col-lg-6', placeholder: 'CITY OR ADDRESS' %>
+      </div>
+      <div class = 'form-group' id='search-div'>
+        <div class='form-errors'></div>
+        <%= hidden_field_tag(:searches, @searches.to_json) %>
+        <%= submit_tag 'SEARCH', class: 'btn btn-primary form-control', id: 'search-button' %>
+      </div>
+      <% if flash[:form_error] %>
+        <div class="error_text">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <%= "#{flash[:form_error]}" %>
         </div>
-        <div class = 'form-group' id='search-div'>
-          <div class='form-errors'></div>
-          <%= hidden_field_tag(:searches, @searches.to_json) %>
-          <%= submit_tag 'SEARCH', class: 'btn btn-primary form-control', id: 'search-button' %>
-        </div>
-      </fieldset>
+      <% end %>
+    </fieldset>
   <% end %>
 </div>
 
@@ -37,6 +43,8 @@
 </div>
 
 <script type="text/javascript">
+    $('#location_input').geocomplete();
+
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         markers = handler.addMarkers([<%=raw @gmap_hash.to_json %>]);

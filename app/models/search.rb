@@ -13,6 +13,10 @@ class Search
     geometry_location['lng']
   end
 
+  def validated?
+    @geocode.present?
+  end
+
   private
 
   def data
