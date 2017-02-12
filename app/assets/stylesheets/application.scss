@@ -31,8 +31,14 @@
 }
 
 .history-tab {
-  color: red;
-  -webkit-appearance: none;
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #337ab7;
+}
+
+.history-tab:hover {
+  text-decoration: underline;
 }
 
 .list-group-item:first-child {
@@ -45,4 +51,9 @@
 
 .navbar-form {
   padding-left: 0;
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
 }
