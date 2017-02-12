@@ -25,7 +25,7 @@
 
     <% @searches.each do |search| %>
       <span class="list-group-item">
-        <%= link_to search, :controller => "results", :action => "index", :searches => @searches, :location_input => search %>
+        <%= link_to search, :controller => "results", :action => "index", :searches => @searches.to_json, :location_input => search %>
       </span>
     <% end %>
 

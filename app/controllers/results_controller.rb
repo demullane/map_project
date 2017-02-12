@@ -5,6 +5,7 @@ class ResultsController < ApplicationController
     search_obj = Search.new(@location)
 
     @searches = params['searches'] ? JSON.parse(params['searches']) << @location : [@location]
+    @searches.uniq!
 
     @gmap_hash = {"lat" => search_obj.latitude, "lng" => search_obj.longitude}
   end
