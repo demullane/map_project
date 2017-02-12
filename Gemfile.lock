@@ -67,8 +67,10 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     i18n (0.8.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -170,6 +172,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    underscore-rails (1.8.3)
     web-console (3.1.1)
       activemodel (>= 4.2)
       debug_inspector
@@ -186,6 +189,8 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.7)
   coffee-rails (= 4.2.1)
   dotenv-rails
+  geocoder
+  gmaps4rails
   jbuilder (= 2.4.1)
   jquery-rails (= 4.1.1)
   listen (= 3.0.8)
@@ -202,6 +207,7 @@ DEPENDENCIES
   turbolinks (= 5.0.1)
   tzinfo-data
   uglifier (= 3.0.0)
+  underscore-rails
   web-console (= 3.1.1)
 
 RUBY VERSION
