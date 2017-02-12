@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1>Google Maps Search</h1>
   <p>Search for a city below and quickly review past searches.</p>
-  <%= form_tag({:controller => 'results', :action => 'index'}, :method => 'get', :id => 'search_form', :class => 'navbar-form') do %>
+  <%= form_tag({:controller => 'home', :action => 'results'}, :method => 'post', :id => 'search_form', :class => 'navbar-form') do %>
       <fieldset>
         <div class = 'form-group'>
           <div id='location_input_errors' class='form-errors'></div>

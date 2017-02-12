@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1>Google Maps Search</h1>
   <p>Search for a city below and quickly review past searches.</p>
-  <%= form_tag({:controller => 'results', :action => 'index'}, :method => 'get', :id => 'search_form', :class => 'navbar-form') do %>
+  <%= form_tag({:controller => 'home', :action => 'results'}, :method => 'post', :id => 'search_form', :class => 'navbar-form') do %>
       <fieldset>
         <div class = 'form-group'>
           <div id='location_input_errors' class='form-errors'></div>
@@ -23,10 +23,14 @@
 <div class="col-md-4">
   <div class="list-group">
 
-    <% @searches.each do |search| %>
-      <span class="list-group-item">
-        <%= link_to search, :controller => "results", :action => "index", :searches => @searches.to_json, :location_input => search %>
-      </span>
+    <%= form_tag({:controller => 'home', :action => 'results'}, :method => 'post', :id => 'search_form') do %>
+      <% @searches.each do |search| %>
+        <%= hidden_field_tag(:location_input, search) %>
+        <%= hidden_field_tag(:searches, @searches.to_json) %>
+        <span class="list-group-item">
+          <%= submit_tag "#{search}", class: 'history-tab' %>
+        </span>
+      <% end %>
     <% end %>
 
   </div>

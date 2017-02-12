@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get '/index' => 'results#index'
+  post '/results' => 'home#results'
 end
