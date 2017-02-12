@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   def index
   end
 
+  def reload
+    redirect_to '/'
+  end
+
   def results
     @location = params['location_input'].upcase
 
