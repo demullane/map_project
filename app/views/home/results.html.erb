@@ -33,9 +33,9 @@
       <% @searches.each do |search| %>
         <%= hidden_field_tag(:location_input, search) %>
         <%= hidden_field_tag(:searches, @searches.to_json) %>
-        <span class="list-group-item">
+        <div class="list-group-item">
           <%= submit_tag "#{search}", class: 'history-tab' %>
-        </span>
+        </div>
       <% end %>
     <% end %>
 
