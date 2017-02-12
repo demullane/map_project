@@ -1,28 +1,34 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
-gem 'rails'
-gem 'puma'
-gem 'bootstrap-sass'
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder'
+gem 'rails',          '5.0.1'
+gem 'puma',           '3.4.0'
+gem 'bootstrap-sass', '3.3.7'
+gem 'sass-rails',     '5.0.6'
+gem 'uglifier',       '3.0.0'
+gem 'coffee-rails',   '4.2.1'
+gem 'jquery-rails',   '4.1.1'
+gem 'turbolinks',     '5.0.1'
+gem 'jbuilder',       '2.4.1'
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'better_errors'
+  gem 'sqlite3',        '1.3.12'
+  gem 'pry-rails',      '0.3.4'
+  gem 'pry-byebug',     '3.4.2'
+  gem 'better_errors',  '2.1.1'
   gem 'dotenv-rails'
 end
 
 group :development do
-  gem 'web-console'
-  gem 'listen'
-  gem 'spring'
-  gem 'spring-watcher-listen'
+  gem 'web-console',            '3.1.1'
+  gem 'listen',                 '3.0.8'
+  gem 'spring',                 '1.7.2'
+  gem 'spring-watcher-listen',  '2.0.0'
+end
+
+group :production do
+  gem 'pg', '0.18.4'
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
