@@ -30,6 +30,14 @@
   height: 400px;
 }
 
+.list-group-item:first-child {
+  border-radius: 0;
+}
+
+.list-group-item:last-child {
+  border-radius: 0;
+}
+
 .navbar-form {
   padding-left: 0;
 }
