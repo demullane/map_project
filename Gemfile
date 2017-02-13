@@ -20,6 +20,8 @@ group :development, :test do
   gem 'pry-byebug',     '3.4.2'
   gem 'better_errors',  '2.1.1'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do

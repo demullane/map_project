@@ -5,6 +5,10 @@ class Search
     @geocode = Geocoder.search(location)[0]
   end
 
+  def gmap_hash
+    {"lat" => latitude, "lng" => longitude}
+  end
+
   def latitude
     geometry_location['lat']
   end
