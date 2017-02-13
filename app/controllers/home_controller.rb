@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  include HomeHelper
+
   def index
   end
 
@@ -7,14 +9,12 @@ class HomeController < ApplicationController
   end
 
   def results
-    @location = params['location_input'].upcase
-    search_obj = Search.new(@location)
+    location = params['location_input'].upcase
+    location_data = Search.new(location)
 
-    if search_obj.validated?
-      @searches = params['searches'] ? JSON.parse(params['searches']) << @location : [@location]
-      @searches.uniq!
-
-      @gmap_hash = {"lat" => search_obj.latitude, "lng" => search_obj.longitude}
+    if location_data.validated?
+      retain_search(location)
+      create_gmap_location(location_data)
     else
       redirect_to :back, flash: {form_error: 'Please enter a valid location'}
     end
