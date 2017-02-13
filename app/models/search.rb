@@ -2,11 +2,13 @@ require 'geocoder'
 
 class Search
   def initialize(location)
-    @geocode = Geocoder.search(location)[0]
+    geocode_response = Geocoder.search(location).first
+    raise 'The location returned no results' unless geocode_response.present?
+    @geocode = geocode_response
   end
 
   def gmap_hash
-    {"lat" => latitude, "lng" => longitude}
+    { 'lat' => latitude, 'lng' => longitude }
   end
 
   def latitude
@@ -15,10 +17,6 @@ class Search
 
   def longitude
     geometry_location['lng']
-  end
-
-  def validated?
-    @geocode.present?
   end
 
   private
